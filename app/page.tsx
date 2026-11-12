@@ -11,7 +11,6 @@ type Place = {
   rating: string;
   image: string;
   description: string;
-  hours: string;
 };
 
 const places: Place[] = [
@@ -22,34 +21,31 @@ const places: Place[] = [
     location: "อำเภอเมืองสุโขทัย",
     rating: "4.9",
     image:
-      "https://images.unsplash.com/photo-1606293926075-69a00dbpay1?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1548013146-72479768bada?w=900",
     description:
-      "สัมผัสความงดงามของเมืองเก่าสุโขทัย แหล่งมรดกโลกที่เต็มไปด้วยเรื่องราวทางประวัติศาสตร์ สถาปัตยกรรม และวัฒนธรรมไทย",
-    hours: "โปรดตรวจสอบเวลาเข้าชม",
+      "แหล่งมรดกโลกที่รวบรวมโบราณสถานและสถาปัตยกรรมอันงดงามของอาณาจักรสุโขทัย",
   },
   {
     id: 2,
-    name: "วัดมหาธาตุ",
+    name: "วัดศรีชุม",
     category: "วัดและโบราณสถาน",
     location: "อำเภอเมืองสุโขทัย",
     rating: "4.8",
     image:
-      "https://images.unsplash.com/photo-1548013146-72479768bada?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1563492065599-3520f775eeed?w=900",
     description:
-      "โบราณสถานสำคัญใจกลางเมืองเก่าสุโขทัย มีเจดีย์ประธานและกลุ่มโบราณสถานที่สะท้อนความรุ่งเรืองของอาณาจักร",
-    hours: "โปรดตรวจสอบเวลาเข้าชม",
+      "สถานที่ประดิษฐานพระอจนะ พระพุทธรูปองค์ใหญ่ที่มีความสำคัญทางประวัติศาสตร์",
   },
   {
     id: 3,
-    name: "วัดศรีชุม",
-    category: "วัดและโบราณสถาน",
+    name: "วัดมหาธาตุ",
+    category: "ประวัติศาสตร์",
     location: "อำเภอเมืองสุโขทัย",
-    rating: "4.7",
+    rating: "4.9",
     image:
-      "https://images.unsplash.com/photo-1563492065599-3520f775eeed?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1606293926075-69a00dbf9e9d?w=900",
     description:
-      "สถานที่ประดิษฐานพระอจนะ พระพุทธรูปองค์ใหญ่ภายในมณฑป เป็นสถานที่สำคัญที่ไม่ควรพลาด",
-    hours: "โปรดตรวจสอบเวลาเข้าชม",
+      "โบราณสถานสำคัญใจกลางเมืองเก่าสุโขทัย โดดเด่นด้วยเจดีย์และสถาปัตยกรรมโบราณ",
   },
   {
     id: 4,
@@ -58,22 +54,20 @@ const places: Place[] = [
     location: "อำเภอคีรีมาศ",
     rating: "4.8",
     image:
-      "https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1470770841072-f978cf4d019e?w=900",
     description:
-      "สัมผัสธรรมชาติ ภูเขา และทิวทัศน์ที่สวยงาม เหมาะสำหรับผู้ที่ชื่นชอบการท่องเที่ยวเชิงธรรมชาติ",
-    hours: "ตรวจสอบประกาศของอุทยาน",
+      "แหล่งท่องเที่ยวธรรมชาติที่มีภูเขา ป่าไม้ และทิวทัศน์ที่สวยงาม",
   },
   {
     id: 5,
-    name: "ปั่นจักรยานชมเมืองเก่า",
+    name: "กิจกรรมปั่นจักรยานชมเมืองเก่า",
     category: "กิจกรรม",
     location: "อุทยานประวัติศาสตร์สุโขทัย",
-    rating: "4.8",
+    rating: "4.7",
     image:
-      "https://images.unsplash.com/photo-1541625602330-2277a4c46182?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1541625602330-2277a4c46182?w=900",
     description:
-      "ปั่นจักรยานชมโบราณสถานและสัมผัสบรรยากาศเมืองเก่าในแบบที่แตกต่าง",
-    hours: "แนะนำช่วงเช้าและเย็น",
+      "เพลิดเพลินกับการปั่นจักรยานชมโบราณสถานและบรรยากาศเมืองเก่า",
   },
   {
     id: 6,
@@ -82,10 +76,9 @@ const places: Place[] = [
     location: "จังหวัดสุโขทัย",
     rating: "4.6",
     image:
-      "https://images.unsplash.com/photo-1445019980597-93fa8acb246c?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1445019980597-93fa8acb246c?w=900",
     description:
-      "ตัวอย่างที่พักสำหรับนักเดินทางที่ต้องการพักผ่อนท่ามกลางบรรยากาศธรรมชาติ",
-    hours: "ตรวจสอบกับที่พัก",
+      "พักผ่อนในบรรยากาศสบาย ๆ พร้อมสัมผัสธรรมชาติระหว่างการเดินทาง",
   },
   {
     id: 7,
@@ -94,10 +87,9 @@ const places: Place[] = [
     location: "จังหวัดสุโขทัย",
     rating: "4.7",
     image:
-      "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=900",
     description:
-      "ค้นพบอาหารพื้นเมืองและเมนูอร่อยที่เป็นเอกลักษณ์ของจังหวัดสุโขทัย",
-    hours: "ตรวจสอบเวลาเปิดร้าน",
+      "ค้นพบอาหารท้องถิ่นและรสชาติที่เป็นเอกลักษณ์ของจังหวัดสุโขทัย",
   },
 ];
 
@@ -110,15 +102,15 @@ const categories = [
   { name: "ร้านอาหาร", icon: "🍜" },
 ];
 
-const navItems = [
+const navigation = [
   { name: "หน้าหลัก", icon: "⌂" },
   { name: "สำรวจ", icon: "⌕" },
   { name: "รายการโปรด", icon: "♡" },
   { name: "บัญชี", icon: "♙" },
 ];
 
-export default function Page() {
-  const [tab, setTab] = useState("หน้าหลัก");
+export default function Home() {
+  const [page, setPage] = useState("หน้าหลัก");
   const [category, setCategory] = useState("ทั้งหมด");
   const [search, setSearch] = useState("");
   const [favorites, setFavorites] = useState<number[]>([]);
@@ -134,10 +126,10 @@ export default function Page() {
   }, []);
 
   function toggleFavorite(id: number) {
-    setFavorites((old) => {
-      const next = old.includes(id)
-        ? old.filter((x) => x !== id)
-        : [...old, id];
+    setFavorites((previous) => {
+      const next = previous.includes(id)
+        ? previous.filter((item) => item !== id)
+        : [...previous, id];
 
       localStorage.setItem(
         "sukhothai-favorites",
@@ -148,224 +140,198 @@ export default function Page() {
     });
   }
 
-  const filtered = useMemo(() => {
-    return places.filter((p) => {
+  const filteredPlaces = useMemo(() => {
+    return places.filter((place) => {
       const matchCategory =
         category === "ทั้งหมด" ||
-        p.category === category ||
+        place.category === category ||
         (category === "ประวัติศาสตร์" &&
-          p.category === "วัดและโบราณสถาน");
+          place.category === "วัดและโบราณสถาน");
 
       const matchSearch =
-        p.name.toLowerCase().includes(search.toLowerCase()) ||
-        p.location.toLowerCase().includes(search.toLowerCase());
+        place.name.toLowerCase().includes(search.toLowerCase()) ||
+        place.location.toLowerCase().includes(search.toLowerCase());
 
       return matchCategory && matchSearch;
     });
   }, [category, search]);
 
-  const favoritePlaces = places.filter((p) =>
-    favorites.includes(p.id)
+  const favoritePlaces = places.filter((place) =>
+    favorites.includes(place.id)
   );
 
-  function openExplore(cat = "ทั้งหมด") {
+  function goExplore(cat = "ทั้งหมด") {
+    setPage("สำรวจ");
     setCategory(cat);
     setSearch("");
-    setTab("สำรวจ");
   }
 
-  function PlaceCard({ place }: { place: Place }) {
+  function Card({ place }: { place: Place }) {
     const saved = favorites.includes(place.id);
 
     return (
       <article className="place-card">
-        <button
-          className="place-photo"
-          onClick={() => setSelected(place)}
-        >
+        <div className="place-image" onClick={() => setSelected(place)}>
           <img src={place.image} alt={place.name} />
-          <span className="photo-category">{place.category}</span>
-        </button>
+          <span className="category-label">{place.category}</span>
+        </div>
 
         <button
-          className={`heart ${saved ? "saved" : ""}`}
+          className={`heart ${saved ? "liked" : ""}`}
           onClick={() => toggleFavorite(place.id)}
           aria-label="เพิ่มรายการโปรด"
         >
           {saved ? "♥" : "♡"}
         </button>
 
-        <button
-          className="place-info"
-          onClick={() => setSelected(place)}
-        >
+        <div className="place-info" onClick={() => setSelected(place)}>
           <h3>{place.name}</h3>
           <p>📍 {place.location}</p>
           <div className="rating">★ {place.rating} <span>แนะนำ</span></div>
-        </button>
+        </div>
       </article>
     );
   }
 
   return (
     <main className="app">
-      <div className="phone-content">
+      <div className="content">
+
         {/* HEADER */}
         <header className="header">
-          <div className="brand">
-            <div className="brand-icon">✦</div>
+          <div className="logo">
+            <div className="logo-icon">✦</div>
             <div>
               <h2>สุโขทัย</h2>
               <small>TRAVEL GUIDE</small>
             </div>
           </div>
-
-          <button
-            className="notification"
-            onClick={() => alert("ไม่มีการแจ้งเตือนใหม่")}
-          >
+          <button className="bell" onClick={() => alert("ไม่มีการแจ้งเตือน")}>
             ♧
-            <span />
           </button>
         </header>
 
         {/* HOME */}
-        {tab === "หน้าหลัก" && (
+        {page === "หน้าหลัก" && (
           <>
             <section className="hero">
               <img
-                src="https://images.unsplash.com/photo-1606293926075-69a00dbpay1?auto=format&fit=crop&w=1400&q=90"
-                alt="บรรยากาศสุโขทัย"
+                src="https://images.unsplash.com/photo-1548013146-72479768bada?w=1200"
+                alt="สถานที่ท่องเที่ยว"
               />
-              <div className="hero-overlay" />
+              <div className="hero-shade" />
 
               <div className="hero-text">
-                <span className="hero-label">✦ DISCOVER THAILAND</span>
+                <span>DISCOVER SUKHOTHAI</span>
                 <p>ออกเดินทางไปค้นพบ</p>
                 <h1>สุโขทัย</h1>
-                <p className="hero-description">
+                <p className="hero-sub">
                   เมืองแห่งประวัติศาสตร์และอารยธรรมไทย
                 </p>
-                <button
-                  className="hero-button"
-                  onClick={() => openExplore()}
-                >
-                  เริ่มต้นสำรวจ <span>→</span>
+                <button onClick={() => goExplore()}>
+                  เริ่มต้นสำรวจ →
                 </button>
-              </div>
-
-              <div className="hero-indicator">
-                <i className="active" />
-                <i />
-                <i />
               </div>
             </section>
 
-            {/* CATEGORY */}
             <section className="section">
-              <div className="section-title">
+              <div className="heading">
                 <div>
-                  <small>EXPLORE BY CATEGORY</small>
+                  <small>EXPLORE CATEGORY</small>
                   <h2>เลือกตามความสนใจ</h2>
                 </div>
-                <span>✦</span>
               </div>
 
-              <div className="category-scroll">
-                {categories.map((c) => (
+              <div className="categories">
+                {categories.map((item) => (
                   <button
-                    key={c.name}
-                    className="category-item"
-                    onClick={() => openExplore(c.name)}
+                    key={item.name}
+                    onClick={() => goExplore(item.name)}
                   >
-                    <span className="category-icon">{c.icon}</span>
-                    <b>{c.name}</b>
+                    <span>{item.icon}</span>
+                    <small>{item.name}</small>
                   </button>
                 ))}
               </div>
             </section>
 
-            {/* POPULAR */}
             <section className="section">
-              <div className="section-title">
+              <div className="heading">
                 <div>
-                  <small>POPULAR DESTINATIONS</small>
+                  <small>POPULAR PLACES</small>
                   <h2>สถานที่ยอดนิยม</h2>
                 </div>
-                <button onClick={() => openExplore()}>
-                  ดูทั้งหมด →
-                </button>
+                <button onClick={() => goExplore()}>ดูทั้งหมด →</button>
               </div>
 
-              <div className="horizontal-scroll">
+              <div className="horizontal">
                 {places.slice(0, 4).map((place) => (
-                  <PlaceCard key={place.id} place={place} />
+                  <Card key={place.id} place={place} />
                 ))}
               </div>
             </section>
 
-            {/* BANNER */}
-            <section className="travel-banner">
+            <section className="banner">
               <div>
-                <span>TRAVEL WITH US</span>
+                <small>TRAVEL WITH US</small>
                 <h2>ทุกการเดินทาง</h2>
                 <h2>มีเรื่องราวเสมอ</h2>
                 <p>ค้นพบเสน่ห์ของสุโขทัยไปด้วยกัน</p>
-                <button onClick={() => openExplore()}>
+                <button onClick={() => goExplore()}>
                   ค้นหาสถานที่ →
                 </button>
               </div>
-              <div className="banner-icon">🧭</div>
+              <span>🧭</span>
             </section>
           </>
         )}
 
         {/* EXPLORE */}
-        {tab === "สำรวจ" && (
+        {page === "สำรวจ" && (
           <>
-            <section className="page-heading">
+            <section className="page-title">
               <small>DISCOVER SUKHOTHAI</small>
               <h1>ออกไปค้นพบสิ่งใหม่</h1>
-              <p>ค้นหาสถานที่ที่คุณอยากไป</p>
+              <p>ค้นหาสถานที่ท่องเที่ยวที่คุณสนใจ</p>
             </section>
 
-            <div className="search-box">
+            <div className="search">
               <span>⌕</span>
               <input
+                placeholder="ค้นหาสถานที่..."
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
-                placeholder="ค้นหาสถานที่ท่องเที่ยว..."
               />
-              <button onClick={() => setSearch("")}>✕</button>
+              <button onClick={() => setSearch("")}>×</button>
             </div>
 
-            <div className="filter-scroll">
-              {categories.map((c) => (
+            <div className="filters">
+              {categories.map((item) => (
                 <button
-                  key={c.name}
-                  className={category === c.name ? "filter active" : "filter"}
-                  onClick={() => setCategory(c.name)}
+                  key={item.name}
+                  className={category === item.name ? "active" : ""}
+                  onClick={() => setCategory(item.name)}
                 >
-                  {c.name}
+                  {item.name}
                 </button>
               ))}
             </div>
 
-            <div className="result-heading">
+            <div className="list-heading">
               <h2>สถานที่ท่องเที่ยว</h2>
-              <span>{filtered.length} แห่ง</span>
+              <span>{filteredPlaces.length} แห่ง</span>
             </div>
 
             <div className="place-list">
-              {filtered.length ? (
-                filtered.map((place) => (
-                  <PlaceCard key={place.id} place={place} />
+              {filteredPlaces.length > 0 ? (
+                filteredPlaces.map((place) => (
+                  <Card key={place.id} place={place} />
                 ))
               ) : (
                 <div className="empty">
                   <span>🔎</span>
                   <h3>ไม่พบสถานที่</h3>
-                  <p>ลองค้นหาด้วยคำอื่นอีกครั้ง</p>
+                  <p>ลองเปลี่ยนคำค้นหาอีกครั้ง</p>
                   <button onClick={() => {
                     setSearch("");
                     setCategory("ทั้งหมด");
@@ -379,31 +345,31 @@ export default function Page() {
         )}
 
         {/* FAVORITES */}
-        {tab === "รายการโปรด" && (
+        {page === "รายการโปรด" && (
           <>
-            <section className="page-heading">
+            <section className="page-title">
               <small>YOUR FAVORITES</small>
-              <h1>สถานที่ที่คุณชอบ ♡</h1>
-              <p>รวบรวมสถานที่โปรดไว้ในที่เดียว</p>
+              <h1>สถานที่โปรด ♡</h1>
+              <p>รวมสถานที่ที่คุณชื่นชอบ</p>
             </section>
 
-            <div className="result-heading">
-              <h2>รายการที่บันทึก</h2>
+            <div className="list-heading">
+              <h2>รายการที่บันทึกไว้</h2>
               <span>{favoritePlaces.length} แห่ง</span>
             </div>
 
             <div className="place-list">
               {favoritePlaces.length ? (
                 favoritePlaces.map((place) => (
-                  <PlaceCard key={place.id} place={place} />
+                  <Card key={place.id} place={place} />
                 ))
               ) : (
                 <div className="empty">
                   <span>♡</span>
                   <h3>ยังไม่มีรายการโปรด</h3>
-                  <p>กดหัวใจบนสถานที่ที่คุณชื่นชอบ</p>
-                  <button onClick={() => openExplore()}>
-                    ไปสำรวจสถานที่
+                  <p>กดปุ่มหัวใจเพื่อบันทึกสถานที่ที่ชอบ</p>
+                  <button onClick={() => goExplore()}>
+                    สำรวจสถานที่
                   </button>
                 </div>
               )}
@@ -412,14 +378,14 @@ export default function Page() {
         )}
 
         {/* PROFILE */}
-        {tab === "บัญชี" && (
+        {page === "บัญชี" && (
           <section className="profile">
-            <div className="profile-avatar">👤</div>
+            <div className="avatar">👤</div>
             <small>WELCOME TRAVELER</small>
             <h1>นักเดินทาง</h1>
             <p>ยินดีต้อนรับสู่ Sukhothai Travel Guide</p>
 
-            <div className="profile-stats">
+            <div className="stats">
               <div>
                 <strong>{favorites.length}</strong>
                 <span>รายการโปรด</span>
@@ -431,66 +397,54 @@ export default function Page() {
             </div>
 
             <div className="profile-menu">
-              <button onClick={() => setTab("รายการโปรด")}>
-                <span>♡</span> รายการโปรด <b>›</b>
+              <button onClick={() => setPage("รายการโปรด")}>
+                ♡ รายการโปรด <span>›</span>
               </button>
-              <button onClick={() => setTab("สำรวจ")}>
-                <span>⌕</span> สำรวจสถานที่ <b>›</b>
+              <button onClick={() => setPage("สำรวจ")}>
+                ⌕ สำรวจสถานที่ <span>›</span>
               </button>
-              <button onClick={() => setTab("หน้าหลัก")}>
-                <span>⌂</span> กลับหน้าหลัก <b>›</b>
+              <button onClick={() => setPage("หน้าหลัก")}>
+                ⌂ กลับหน้าหลัก <span>›</span>
               </button>
             </div>
           </section>
         )}
       </div>
 
-      {/* BOTTOM NAV */}
+      {/* BOTTOM NAVIGATION */}
       <nav className="bottom-nav">
-        {navItems.map((item) => (
+        {navigation.map((item) => (
           <button
             key={item.name}
-            className={tab === item.name ? "nav-button active" : "nav-button"}
-            onClick={() => setTab(item.name)}
+            className={page === item.name ? "selected" : ""}
+            onClick={() => setPage(item.name)}
           >
-            <span className="nav-icon">{item.icon}</span>
+            <span>{item.icon}</span>
             <small>{item.name}</small>
           </button>
         ))}
       </nav>
 
-      {/* DETAIL MODAL */}
+      {/* DETAIL */}
       {selected && (
         <div className="modal" onClick={() => setSelected(null)}>
-          <article
-            className="detail"
-            onClick={(e) => e.stopPropagation()}
-          >
+          <section className="detail" onClick={(e) => e.stopPropagation()}>
             <div className="detail-image">
               <img src={selected.image} alt={selected.name} />
               <button onClick={() => setSelected(null)}>✕</button>
             </div>
 
-            <div className="detail-body">
-              <span className="detail-category">{selected.category}</span>
-
+            <div className="detail-content">
+              <small>{selected.category}</small>
               <h2>{selected.name}</h2>
-              <p className="detail-location">📍 {selected.location}</p>
-              <p className="detail-rating">★ {selected.rating}</p>
+              <p>📍 {selected.location}</p>
+              <div className="rating">★ {selected.rating}</div>
 
               <h3>เกี่ยวกับสถานที่</h3>
-              <p className="detail-description">{selected.description}</p>
-
-              <div className="detail-hours">
-                <span>◷</span>
-                <div>
-                  <b>เวลาเข้าชม</b>
-                  <p>{selected.hours}</p>
-                </div>
-              </div>
+              <p className="description">{selected.description}</p>
 
               <button
-                className="detail-button"
+                className="save-button"
                 onClick={() => toggleFavorite(selected.id)}
               >
                 {favorites.includes(selected.id)
@@ -498,490 +452,399 @@ export default function Page() {
                   : "♡ เพิ่มในรายการโปรด"}
               </button>
             </div>
-          </article>
+          </section>
         </div>
       )}
 
-      {/* SELF CONTAINED CSS */}
       <style jsx global>{`
         * {
           box-sizing: border-box;
         }
 
-        html {
-          background: #f5f3ee;
-          scroll-behavior: smooth;
-        }
-
         body {
           margin: 0;
-          font-family: Arial, "Noto Sans Thai", sans-serif;
+          background: #f5f2ec;
           color: #39342d;
-          background: #f5f3ee;
+          font-family: Arial, "Noto Sans Thai", sans-serif;
         }
 
         button {
-          font: inherit;
+          font-family: inherit;
           cursor: pointer;
           -webkit-tap-highlight-color: transparent;
         }
 
         .app {
           width: 100%;
+          max-width: 480px;
           min-height: 100vh;
-          background: #fffdf9;
           margin: auto;
+          background: #fffdf9;
           position: relative;
           overflow: hidden;
         }
 
-        .phone-content {
-          width: 100%;
-          max-width: 480px;
-          margin: auto;
+        .content {
+          padding: 0 18px 100px;
           min-height: 100vh;
-          padding: 0 18px 105px;
         }
 
         .header {
-          height: 75px;
+          height: 76px;
           display: flex;
+          align-items: center;
           justify-content: space-between;
-          align-items: center;
         }
 
-        .brand {
+        .logo {
           display: flex;
-          align-items: center;
           gap: 10px;
+          align-items: center;
         }
 
-        .brand-icon {
+        .logo-icon {
           width: 43px;
           height: 43px;
+          background: #fff0d5;
           border-radius: 15px;
-          background: #ffedc8;
-          color: #e88b30;
           display: grid;
           place-items: center;
-          font-size: 25px;
+          font-size: 24px;
+          color: #df943e;
         }
 
-        .brand h2 {
+        .logo h2 {
           font-size: 19px;
           margin: 0;
-          font-weight: 800;
         }
 
-        .brand small {
-          color: #b3a18b;
+        .logo small {
           font-size: 9px;
           letter-spacing: 2px;
+          color: #ae9d88;
         }
 
-        .notification {
+        .bell {
+          border: 0;
+          background: #fff0d5;
           width: 42px;
           height: 42px;
-          border: 0;
-          background: #fff2dd;
-          border-radius: 15px;
-          color: #db8b34;
-          font-size: 23px;
-          position: relative;
-        }
-
-        .notification span {
-          position: absolute;
-          top: 9px;
-          right: 10px;
-          width: 7px;
-          height: 7px;
-          background: #f27a48;
-          border-radius: 50%;
+          border-radius: 14px;
+          color: #d78d3b;
+          font-size: 22px;
         }
 
         .hero {
           height: 355px;
-          position: relative;
           border-radius: 25px;
+          position: relative;
           overflow: hidden;
           color: white;
-          box-shadow: 0 12px 30px #c89b6540;
         }
 
         .hero > img {
+          position: absolute;
+          inset: 0;
           width: 100%;
           height: 100%;
           object-fit: cover;
-          position: absolute;
-          inset: 0;
         }
 
-        .hero-overlay {
+        .hero-shade {
           position: absolute;
           inset: 0;
           background: linear-gradient(
             0deg,
-            #30271dce 0%,
-            #30271d70 42%,
-            transparent 100%
+            #241d19db,
+            #241d1950 50%,
+            transparent
           );
         }
 
         .hero-text {
           position: absolute;
-          bottom: 40px;
           left: 23px;
           right: 20px;
+          bottom: 35px;
         }
 
-        .hero-label {
+        .hero-text > span {
+          color: #ffdf9f;
           font-size: 10px;
           letter-spacing: 2px;
-          color: #ffe2a9;
-          font-weight: bold;
         }
 
-        .hero-text > p {
+        .hero-text p {
           font-size: 14px;
-          margin: 13px 0 0;
+          margin: 12px 0 3px;
         }
 
         .hero-text h1 {
-          font-size: 42px;
-          line-height: 1.2;
-          margin: 2px 0;
+          font-size: 43px;
+          margin: 0;
           font-weight: 900;
         }
 
-        .hero-text .hero-description {
+        .hero-text .hero-sub {
           font-size: 12px;
           margin: 8px 0 18px;
         }
 
-        .hero-button {
+        .hero-text button,
+        .banner button {
+          background: #f4b65d;
+          color: #573b1c;
           border: 0;
-          background: #ffbd61;
-          color: #553b1f;
           border-radius: 30px;
           padding: 12px 20px;
           font-size: 12px;
-          font-weight: 800;
-        }
-
-        .hero-button span {
-          margin-left: 10px;
-        }
-
-        .hero-indicator {
-          position: absolute;
-          bottom: 15px;
-          right: 22px;
-          display: flex;
-          gap: 5px;
-        }
-
-        .hero-indicator i {
-          width: 6px;
-          height: 6px;
-          border-radius: 10px;
-          background: #ffffff80;
-        }
-
-        .hero-indicator .active {
-          width: 19px;
-          background: #ffbd61;
+          font-weight: bold;
         }
 
         .section {
           margin-top: 29px;
         }
 
-        .section-title {
+        .heading {
           display: flex;
           justify-content: space-between;
           align-items: center;
-          margin-bottom: 16px;
+          margin-bottom: 15px;
         }
 
-        .section-title small,
-        .page-heading small {
+        .heading small,
+        .page-title small {
+          color: #d69344;
           font-size: 9px;
           letter-spacing: 1.5px;
-          color: #d69a51;
-          font-weight: 800;
-        }
-
-        .section-title h2 {
-          margin: 5px 0 0;
-          font-size: 18px;
-        }
-
-        .section-title > span {
-          color: #e4a04d;
-          font-size: 23px;
-        }
-
-        .section-title button {
-          border: 0;
-          background: none;
-          color: #d68c3c;
-          font-size: 11px;
           font-weight: bold;
         }
 
-        .category-scroll {
+        .heading h2 {
+          font-size: 18px;
+          margin: 5px 0;
+        }
+
+        .heading > button {
+          border: 0;
+          background: none;
+          color: #d18b3d;
+          font-size: 11px;
+        }
+
+        .categories {
           display: flex;
           overflow-x: auto;
           gap: 13px;
-          padding: 2px 0 9px;
           scrollbar-width: none;
+          padding-bottom: 8px;
         }
 
-        .category-scroll::-webkit-scrollbar,
-        .horizontal-scroll::-webkit-scrollbar,
-        .filter-scroll::-webkit-scrollbar {
-          display: none;
-        }
-
-        .category-item {
-          flex: 0 0 76px;
-          border: 0;
-          background: transparent;
+        .categories button {
+          flex: 0 0 72px;
           display: flex;
           flex-direction: column;
           align-items: center;
           gap: 8px;
+          border: 0;
+          background: none;
           color: #51483d;
+        }
+
+        .categories button span {
+          width: 60px;
+          height: 60px;
+          border-radius: 20px;
+          background: #fff1da;
+          display: grid;
+          place-items: center;
+          font-size: 24px;
+        }
+
+        .categories button small {
           font-size: 10px;
         }
 
-        .category-icon {
-          width: 62px;
-          height: 62px;
-          border-radius: 21px;
-          display: grid;
-          place-items: center;
-          background: #fff1d9;
-          font-size: 25px;
-          transition: .2s;
-        }
-
-        .category-item:active .category-icon {
-          transform: scale(.93);
-        }
-
-        .horizontal-scroll {
+        .horizontal {
           display: flex;
           overflow-x: auto;
           gap: 13px;
-          padding-bottom: 10px;
           scrollbar-width: none;
         }
 
         .place-card {
-          position: relative;
-          flex: 0 0 auto;
           width: 100%;
+          flex-shrink: 0;
+          position: relative;
           background: white;
+          border: 1px solid #f1ebdf;
           border-radius: 19px;
           overflow: hidden;
-          box-shadow: 0 5px 18px #7e68400d;
-          border: 1px solid #f3eee6;
-          margin-bottom: 13px;
+          margin-bottom: 14px;
         }
 
-        .horizontal-scroll .place-card {
+        .horizontal .place-card {
           width: 235px;
         }
 
-        .place-photo {
-          height: 160px;
-          width: 100%;
-          display: block;
+        .place-image {
+          height: 165px;
           position: relative;
-          border: 0;
-          padding: 0;
-          overflow: hidden;
+          cursor: pointer;
           background: #eee4d6;
         }
 
-        .place-photo img {
+        .place-image img {
           width: 100%;
           height: 100%;
           object-fit: cover;
-          transition: transform .3s;
         }
 
-        .place-photo:active img {
-          transform: scale(1.04);
-        }
-
-        .photo-category {
+        .category-label {
           position: absolute;
-          left: 12px;
           top: 12px;
-          background: #fffaf0e8;
-          color: #a96a2e;
+          left: 12px;
           padding: 6px 10px;
           border-radius: 20px;
+          background: #fffaf0e8;
+          color: #a96a2e;
           font-size: 9px;
-          font-weight: bold;
         }
 
         .heart {
           position: absolute;
-          top: 11px;
           right: 11px;
+          top: 11px;
           width: 35px;
           height: 35px;
           border: 0;
-          border-radius: 50%;
           background: white;
-          color: #d4a18a;
-          font-size: 21px;
+          border-radius: 50%;
+          font-size: 20px;
+          color: #c4a18c;
           z-index: 2;
         }
 
-        .heart.saved {
-          color: #e66b51;
+        .heart.liked {
+          color: #e65f50;
         }
 
         .place-info {
-          display: block;
-          width: 100%;
-          text-align: left;
-          padding: 12px 13px 14px;
-          border: 0;
-          background: white;
-          color: #403a32;
+          padding: 12px 13px 15px;
+          cursor: pointer;
         }
 
         .place-info h3 {
-          margin: 0 0 8px;
           font-size: 13px;
-          line-height: 1.5;
+          margin: 0 0 8px;
         }
 
         .place-info p {
           font-size: 10px;
-          color: #9a9286;
+          color: #9b9185;
           margin: 0 0 8px;
         }
 
         .rating {
-          color: #e39a39;
           font-size: 11px;
           font-weight: bold;
+          color: #e3a044;
         }
 
         .rating span {
-          background: #fff4e3;
+          margin-left: 7px;
+          background: #fff2df;
           border-radius: 12px;
-          padding: 3px 8px;
-          margin-left: 6px;
+          padding: 4px 8px;
           font-size: 9px;
         }
 
-        .travel-banner {
-          margin-top: 17px;
-          border-radius: 22px;
+        .banner {
+          margin-top: 20px;
           padding: 22px;
           min-height: 160px;
           display: flex;
-          align-items: center;
           justify-content: space-between;
-          background: linear-gradient(120deg, #ffefce, #ffe0b3);
-          margin-bottom: 20px;
+          align-items: center;
+          border-radius: 22px;
+          background: linear-gradient(120deg, #fff0d2, #ffdfb3);
         }
 
-        .travel-banner span {
+        .banner small {
+          color: #ba7a36;
+          letter-spacing: 1px;
           font-size: 9px;
-          letter-spacing: 2px;
-          color: #bb7c36;
-          font-weight: bold;
         }
 
-        .travel-banner h2 {
+        .banner h2 {
           font-size: 17px;
           margin: 6px 0;
         }
 
-        .travel-banner p {
+        .banner p {
           font-size: 10px;
-          color: #8f785e;
+          color: #927a5e;
         }
 
-        .travel-banner button {
-          border: 0;
-          background: #e89c48;
-          color: white;
-          border-radius: 30px;
-          padding: 10px 15px;
-          font-size: 10px;
-          margin-top: 7px;
+        .banner > span {
+          font-size: 42px;
         }
 
-        .banner-icon {
-          font-size: 45px;
+        .page-title {
+          padding: 25px 0 18px;
         }
 
-        .page-heading {
-          padding: 22px 0 18px;
-        }
-
-        .page-heading h1 {
+        .page-title h1 {
           font-size: 24px;
-          margin: 9px 0 5px;
+          margin: 9px 0;
         }
 
-        .page-heading p {
-          color: #a59b8e;
+        .page-title p {
           font-size: 12px;
+          color: #a59a8c;
         }
 
-        .search-box {
+        .search {
           height: 51px;
-          border: 1px solid #f0e8db;
-          background: #fff;
-          border-radius: 15px;
           display: flex;
           align-items: center;
-          padding: 0 14px;
           gap: 10px;
-          color: #c38c4e;
+          padding: 0 14px;
+          border: 1px solid #f0e8db;
+          border-radius: 15px;
+          background: white;
         }
 
-        .search-box > span {
-          font-size: 25px;
+        .search span {
+          font-size: 24px;
+          color: #c58b49;
         }
 
-        .search-box input {
+        .search input {
           flex: 1;
-          min-width: 0;
+          width: 0;
           border: 0;
-          outline: 0;
+          outline: none;
           font-size: 12px;
-          color: #4c443a;
           background: transparent;
         }
 
-        .search-box button {
+        .search button {
           border: 0;
-          background: transparent;
-          color: #a99e91;
+          background: none;
+          color: #a69b8e;
         }
 
-        .filter-scroll {
+        .filters {
           display: flex;
           gap: 8px;
           overflow-x: auto;
-          padding: 17px 0;
+          padding: 16px 0;
           scrollbar-width: none;
         }
 
-        .filter {
-          white-space: nowrap;
+        .filters button {
+          flex-shrink: 0;
           border: 1px solid #eee5d8;
           background: white;
           color: #8d8172;
@@ -990,44 +853,40 @@ export default function Page() {
           font-size: 10px;
         }
 
-        .filter.active {
+        .filters button.active {
           background: #e99d4d;
           color: white;
           border-color: #e99d4d;
         }
 
-        .result-heading {
+        .list-heading {
           display: flex;
-          align-items: center;
           justify-content: space-between;
-          margin: 12px 0 17px;
+          align-items: center;
+          margin: 14px 0;
         }
 
-        .result-heading h2 {
+        .list-heading h2 {
           font-size: 16px;
         }
 
-        .result-heading span {
+        .list-heading span {
           font-size: 10px;
           color: #d68e41;
         }
 
-        .place-list .place-card {
-          width: 100%;
-        }
-
-        .place-list .place-photo {
+        .place-list .place-image {
           height: 175px;
         }
 
         .empty {
           text-align: center;
-          padding: 60px 15px;
+          padding: 65px 10px;
         }
 
         .empty > span {
           font-size: 45px;
-          color: #e6a35b;
+          color: #d99a4b;
         }
 
         .empty h3 {
@@ -1041,24 +900,23 @@ export default function Page() {
 
         .empty button {
           border: 0;
-          background: #e99d4d;
-          color: white;
           border-radius: 25px;
           padding: 12px 20px;
-          margin-top: 15px;
+          background: #e99d4d;
+          color: white;
         }
 
         .profile {
           text-align: center;
-          padding: 45px 5px 20px;
+          padding-top: 45px;
         }
 
-        .profile-avatar {
-          width: 105px;
-          height: 105px;
-          background: #ffedcf;
+        .avatar {
+          width: 100px;
+          height: 100px;
+          margin: auto auto 20px;
+          background: #fff0d5;
           border-radius: 35px;
-          margin: 0 auto 20px;
           display: grid;
           place-items: center;
           font-size: 45px;
@@ -1074,11 +932,11 @@ export default function Page() {
         }
 
         .profile > p {
-          font-size: 12px;
           color: #a69a8b;
+          font-size: 12px;
         }
 
-        .profile-stats {
+        .stats {
           display: flex;
           background: #fff4e3;
           border-radius: 20px;
@@ -1086,49 +944,41 @@ export default function Page() {
           margin: 30px 0;
         }
 
-        .profile-stats div {
+        .stats div {
           flex: 1;
           display: flex;
           flex-direction: column;
           gap: 6px;
         }
 
-        .profile-stats strong {
+        .stats strong {
           font-size: 25px;
           color: #d98c39;
         }
 
-        .profile-stats span {
+        .stats span {
           font-size: 11px;
         }
 
         .profile-menu {
-          background: white;
-          border-radius: 18px;
           padding: 5px 15px;
+          background: white;
           border: 1px solid #f2eee7;
+          border-radius: 18px;
         }
 
         .profile-menu button {
-          display: flex;
-          align-items: center;
           width: 100%;
-          padding: 17px 5px;
+          padding: 18px 5px;
           border: 0;
           border-bottom: 1px solid #f4eee6;
           background: white;
           text-align: left;
-          gap: 13px;
           font-size: 12px;
         }
 
         .profile-menu button span {
-          color: #dc984e;
-          font-size: 20px;
-        }
-
-        .profile-menu button b {
-          margin-left: auto;
+          float: right;
           color: #c5b7a5;
         }
 
@@ -1136,53 +986,49 @@ export default function Page() {
           position: fixed;
           z-index: 20;
           bottom: 0;
-          left: 0;
-          right: 0;
+          left: 50%;
+          transform: translateX(-50%);
           width: 100%;
           max-width: 480px;
-          margin: auto;
           height: calc(76px + env(safe-area-inset-bottom));
           padding: 8px 10px env(safe-area-inset-bottom);
           background: #ffffffed;
           backdrop-filter: blur(16px);
           border-top: 1px solid #f2ebdf;
           display: flex;
-          justify-content: space-around;
           align-items: center;
+          justify-content: space-around;
         }
 
-        .nav-button {
+        .bottom-nav button {
           flex: 1;
-          border: 0;
-          background: transparent;
           display: flex;
           flex-direction: column;
           align-items: center;
           gap: 4px;
+          border: 0;
+          background: transparent;
           color: #aaa194;
         }
 
-        .nav-icon {
+        .bottom-nav button > span {
           font-size: 25px;
-          line-height: 1;
+          line-height: 1.2;
         }
 
-        .nav-button small {
+        .bottom-nav button small {
           font-size: 10px;
         }
 
-        .nav-button.active {
+        .bottom-nav button.selected {
           color: #df913e;
           font-weight: bold;
         }
 
-        .nav-button.active .nav-icon {
+        .bottom-nav button.selected > span {
           background: #fff0d8;
           width: 48px;
-          height: 31px;
           border-radius: 15px;
-          display: grid;
-          place-items: center;
         }
 
         .modal {
@@ -1203,11 +1049,10 @@ export default function Page() {
           overflow-y: auto;
           background: #fffdf9;
           border-radius: 25px;
-          animation: slideUp .25s ease;
         }
 
         .detail-image {
-          height: 240px;
+          height: 230px;
           position: relative;
         }
 
@@ -1219,144 +1064,77 @@ export default function Page() {
 
         .detail-image button {
           position: absolute;
-          right: 15px;
           top: 15px;
+          right: 15px;
           border: 0;
-          background: white;
           border-radius: 50%;
           width: 38px;
           height: 38px;
+          background: white;
         }
 
-        .detail-body {
+        .detail-content {
           padding: 22px;
         }
 
-        .detail-category {
+        .detail-content > small {
           color: #d28b42;
-          font-size: 11px;
         }
 
-        .detail-body h2 {
+        .detail-content h2 {
           font-size: 22px;
-          margin: 9px 0;
         }
 
-        .detail-location,
-        .detail-rating {
+        .detail-content p {
           font-size: 12px;
-          color: #a2927d;
+          color: #968a7a;
         }
 
-        .detail-rating {
-          color: #e3a044;
-        }
-
-        .detail-body h3 {
+        .detail-content h3 {
           font-size: 14px;
-          margin-top: 24px;
+          margin-top: 25px;
         }
 
-        .detail-description {
-          font-size: 13px;
+        .detail-content .description {
           line-height: 1.9;
-          color: #84796b;
+          font-size: 13px;
         }
 
-        .detail-hours {
-          display: flex;
-          gap: 13px;
-          padding: 15px;
-          background: #fff2df;
-          border-radius: 14px;
-          margin: 20px 0;
-        }
-
-        .detail-hours span {
-          font-size: 22px;
-          color: #d48d3e;
-        }
-
-        .detail-hours b {
-          font-size: 12px;
-        }
-
-        .detail-hours p {
-          font-size: 11px;
-          margin: 5px 0;
-        }
-
-        .detail-button {
+        .save-button {
           width: 100%;
           background: #e99d4d;
           color: white;
           border: 0;
           border-radius: 15px;
           padding: 15px;
+          margin-top: 20px;
           font-weight: bold;
         }
 
-        @keyframes slideUp {
-          from {
-            transform: translateY(50px);
-            opacity: 0;
-          }
-          to {
-            transform: translateY(0);
-            opacity: 1;
-          }
-        }
-
         @media (min-width: 600px) {
-          .app {
-            max-width: 480px;
-            min-height: 100vh;
-            box-shadow: 0 0 50px #6c5a4015;
-          }
-
-          .bottom-nav {
-            box-shadow: 0 -5px 20px #6c5a400c;
-          }
-        }
-
-        @media (min-width: 900px) {
           body {
-            padding: 25px 0;
+            padding: 20px 0;
           }
 
           .app {
-            border-radius: 30px;
-            min-height: calc(100vh - 50px);
+            border-radius: 28px;
+            box-shadow: 0 0 40px #6c5a4015;
           }
 
           .bottom-nav {
-            bottom: 25px;
-            border-radius: 0 0 30px 30px;
+            bottom: 20px;
+            border-radius: 0 0 28px 28px;
           }
         }
 
         @media (max-width: 350px) {
-          .phone-content {
-            padding-left: 13px;
-            padding-right: 13px;
+          .content {
+            padding-left: 12px;
+            padding-right: 12px;
           }
 
           .hero {
             height: 320px;
-          }
-
-          .hero-text h1 {
-            font-size: 35px;
-          }
-        }
-
-        @media (prefers-reduced-motion: reduce) {
-          *,
-          *::before,
-          *::after {
-            scroll-behavior: auto !important;
-            animation-duration: .01ms !important;
-            transition-duration: .01ms !important;
           }
         }
       `}</style>
