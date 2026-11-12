@@ -2,28 +2,6 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import {
-  ArrowRight,
-  Bell,
-  CalendarDays,
-  Car,
-  ChevronRight,
-  Clock3,
-  Compass,
-  Heart,
-  Home,
-  MapPin,
-  Menu,
-  Search,
-  SlidersHorizontal,
-  Star,
-  UserRound,
-  Utensils,
-  BedDouble,
-  X,
-  Navigation,
-  Sparkles,
-} from "lucide-react";
 
 type Place = {
   id: number;
@@ -44,10 +22,10 @@ const places: Place[] = [
     rating: "4.8",
     location: "อำเภอเมืองสุโขทัย",
     image:
-      "https://images.unsplash.com/photo-1606293926075-69a00dbpay1?auto=format&fit=crop&w=1200&q=85",
-    hours: "ทุกวัน 06.30–18.00 น.",
+      "https://images.unsplash.com/photo-1548013146-72479768bada?auto=format&fit=crop&w=1000&q=85",
+    hours: "ตัวอย่างเวลา 06.30–18.00 น.",
     description:
-      "แหล่งมรดกโลกทางวัฒนธรรมที่รวบรวมโบราณสถานสำคัญของอาณาจักรสุโขทัย ท่ามกลางบรรยากาศร่มรื่นและสวยงาม",
+      "แหล่งมรดกโลกทางวัฒนธรรมที่รวบรวมโบราณสถานสำคัญของอาณาจักรสุโขทัย เหมาะสำหรับการเรียนรู้ประวัติศาสตร์และชมความงดงามของสถาปัตยกรรมไทย",
   },
   {
     id: 2,
@@ -56,10 +34,10 @@ const places: Place[] = [
     rating: "4.7",
     location: "อำเภอเมืองสุโขทัย",
     image:
-      "https://images.unsplash.com/photo-1548013146-72479768bada?auto=format&fit=crop&w=1200&q=85",
-    hours: "ทุกวัน 06.30–18.00 น.",
+      "https://images.unsplash.com/photo-1563492065599-3520f775eeed?auto=format&fit=crop&w=1000&q=85",
+    hours: "โปรดตรวจสอบเวลาเข้าชม",
     description:
-      "โบราณสถานสำคัญใจกลางเมืองเก่าสุโขทัย โดดเด่นด้วยเจดีย์ประธานและกลุ่มโบราณสถานโดยรอบ",
+      "โบราณสถานสำคัญใจกลางเมืองเก่าสุโขทัย มีเจดีย์และโบราณสถานที่สะท้อนถึงความรุ่งเรืองของอาณาจักรสุโขทัย",
   },
   {
     id: 3,
@@ -68,10 +46,10 @@ const places: Place[] = [
     rating: "4.6",
     location: "อำเภอเมืองสุโขทัย",
     image:
-      "https://images.unsplash.com/photo-1563492065599-3520f775eeed?auto=format&fit=crop&w=1200&q=85",
-    hours: "ทุกวัน 07.00–17.30 น.",
+      "https://images.unsplash.com/photo-1606293926075-69a00dbpay1?auto=format&fit=crop&w=1000&q=85",
+    hours: "โปรดตรวจสอบเวลาเข้าชม",
     description:
-      "สถานที่ประดิษฐานพระอจนะ พระพุทธรูปองค์ใหญ่ภายในมณฑป ซึ่งเป็นหนึ่งในจุดหมายที่ไม่ควรพลาด",
+      "สถานที่ประดิษฐานพระอจนะ พระพุทธรูปองค์ใหญ่ภายในมณฑป เป็นหนึ่งในสถานที่ท่องเที่ยวที่มีชื่อเสียงของสุโขทัย",
   },
   {
     id: 4,
@@ -80,62 +58,155 @@ const places: Place[] = [
     rating: "4.5",
     location: "อำเภอคีรีมาศ",
     image:
-      "https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=1200&q=85",
-    hours: "โปรดตรวจสอบก่อนเดินทาง",
+      "https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=1000&q=85",
+    hours: "ตรวจสอบประกาศของอุทยาน",
     description:
-      "พื้นที่ธรรมชาติที่เหมาะกับการเดินป่า ชมวิวภูเขา และสัมผัสอากาศบริสุทธิ์",
+      "สถานที่ท่องเที่ยวทางธรรมชาติ เหมาะสำหรับผู้ที่ชื่นชอบภูเขา การเดินป่า และการชมวิวทิวทัศน์",
   },
   {
     id: 5,
-    name: "ปั่นจักรยานชมเมืองเก่า",
+    name: "กิจกรรมปั่นจักรยานชมเมืองเก่า",
     category: "กิจกรรม",
     rating: "4.7",
     location: "อุทยานประวัติศาสตร์สุโขทัย",
     image:
-      "https://images.unsplash.com/photo-1541625602330-2277a4c46182?auto=format&fit=crop&w=1200&q=85",
-    hours: "ช่วงเช้าและเย็น",
+      "https://images.unsplash.com/photo-1541625602330-2277a4c46182?auto=format&fit=crop&w=1000&q=85",
+    hours: "แนะนำช่วงเช้าและเย็น",
     description:
-      "กิจกรรมปั่นจักรยานชมโบราณสถานและบรรยากาศเมืองเก่าอย่างเพลิดเพลิน",
+      "กิจกรรมปั่นจักรยานชมบรรยากาศเมืองเก่าและโบราณสถานโดยรอบอย่างเพลิดเพลิน",
   },
   {
     id: 6,
     name: "ที่พักบรรยากาศธรรมชาติ",
     category: "ที่พัก",
     rating: "4.6",
-    location: "อำเภอเมืองสุโขทัย",
+    location: "จังหวัดสุโขทัย",
     image:
-      "https://images.unsplash.com/photo-1445019980597-93fa8acb246c?auto=format&fit=crop&w=1200&q=85",
-    hours: "เช็กอินตามเวลาของที่พัก",
+      "https://images.unsplash.com/photo-1445019980597-93fa8acb246c?auto=format&fit=crop&w=1000&q=85",
+    hours: "ขึ้นอยู่กับเวลาเช็กอินของที่พัก",
     description:
-      "ตัวอย่างที่พักสำหรับพักผ่อนหลังจากออกเดินทางท่องเที่ยวในจังหวัดสุโขทัย",
+      "ตัวอย่างที่พักสำหรับนักเดินทางที่ต้องการพักผ่อนและสัมผัสบรรยากาศของจังหวัดสุโขทัย",
   },
   {
     id: 7,
-    name: "ร้านอาหารพื้นเมืองสุโขทัย",
+    name: "อาหารพื้นเมืองสุโขทัย",
     category: "ร้านอาหาร",
     rating: "4.5",
-    location: "อำเภอเมืองสุโขทัย",
+    location: "จังหวัดสุโขทัย",
     image:
-      "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=1200&q=85",
-    hours: "โปรดตรวจสอบเวลาเปิดร้าน",
+      "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=1000&q=85",
+    hours: "ตรวจสอบเวลาเปิดร้านก่อนเดินทาง",
     description:
-      "ค้นหาเมนูอาหารพื้นเมืองและร้านอาหารสำหรับเติมพลังระหว่างทริป",
+      "ค้นพบอาหารพื้นเมืองและร้านอาหารที่น่าสนใจระหว่างการเดินทางท่องเที่ยวสุโขทัย",
   },
 ];
 
 const categories = [
-  { label: "สถานที่ท่องเที่ยว", icon: MapPin, filter: "ทั้งหมด" },
-  { label: "กิจกรรม", icon: CalendarDays, filter: "กิจกรรม" },
-  { label: "ที่พัก", icon: BedDouble, filter: "ที่พัก" },
-  { label: "ร้านอาหาร", icon: Utensils, filter: "ร้านอาหาร" },
+  { label: "สถานที่ท่องเที่ยว", icon: "📍", filter: "ทั้งหมด" },
+  { label: "กิจกรรม", icon: "🚴", filter: "กิจกรรม" },
+  { label: "ที่พัก", icon: "🏨", filter: "ที่พัก" },
+  { label: "ร้านอาหาร", icon: "🍜", filter: "ร้านอาหาร" },
 ];
 
 const navItems = [
-  { label: "หน้าหลัก", icon: Home },
-  { label: "สำรวจ", icon: Compass },
-  { label: "รายการโปรด", icon: Heart },
-  { label: "บัญชี", icon: UserRound },
+  { label: "หน้าหลัก", icon: "⌂" },
+  { label: "สำรวจ", icon: "◎" },
+  { label: "รายการโปรด", icon: "♡" },
+  { label: "บัญชี", icon: "♙" },
 ];
+
+function SectionHeading({
+  title,
+  action,
+  onClick,
+}: {
+  title: string;
+  action?: string;
+  onClick?: () => void;
+}) {
+  return (
+    <div className="section-heading">
+      <h2>{title}</h2>
+      {action && (
+        <button type="button" onClick={onClick}>
+          {action} <span>›</span>
+        </button>
+      )}
+    </div>
+  );
+}
+
+function PlaceCard({
+  place,
+  favorite,
+  onFavorite,
+  onOpen,
+  compact = false,
+}: {
+  place: Place;
+  favorite: boolean;
+  onFavorite: () => void;
+  onOpen: () => void;
+  compact?: boolean;
+}) {
+  return (
+    <article className={`place-card ${compact ? "compact" : ""}`}>
+      <button
+        type="button"
+        className="place-open"
+        onClick={onOpen}
+      >
+        <img src={place.image} alt={place.name} />
+
+        <div className="place-info">
+          <h3>{place.name}</h3>
+
+          <div className="place-meta">
+            <span>★ {place.rating}</span>
+            <span>📍 {place.location}</span>
+          </div>
+        </div>
+      </button>
+
+      <button
+        type="button"
+        className={`card-heart ${favorite ? "saved" : ""}`}
+        onClick={onFavorite}
+        aria-label={favorite ? "นำออกจากรายการโปรด" : "เพิ่มรายการโปรด"}
+      >
+        {favorite ? "♥" : "♡"}
+      </button>
+    </article>
+  );
+}
+
+function EmptyState({
+  title,
+  description,
+  onClick,
+}: {
+  title: string;
+  description: string;
+  onClick: () => void;
+}) {
+  return (
+    <div className="empty-state">
+      <div className="empty-icon">
+        <span style={{ fontSize: 32 }}>♡</span>
+      </div>
+      <h3>{title}</h3>
+      <p>{description}</p>
+
+      <button
+        type="button"
+        className="primary-button"
+        onClick={onClick}
+      >
+        ไปสำรวจสถานที่ →
+      </button>
+    </div>
+  );
+}
 
 export default function HomePage() {
   const [tab, setTab] = useState("หน้าหลัก");
@@ -143,38 +214,39 @@ export default function HomePage() {
   const [query, setQuery] = useState("");
   const [favorites, setFavorites] = useState<number[]>([]);
   const [selected, setSelected] = useState<Place | null>(null);
-  const [showFilters, setShowFilters] = useState(false);
 
-  const filtered = useMemo(() => {
+  const filteredPlaces = useMemo(() => {
     return places.filter((place) => {
       const matchesCategory =
         category === "ทั้งหมด" || place.category === category;
 
-      const matchesSearch = place.name
-        .toLowerCase()
-        .includes(query.toLowerCase());
+      const searchText = query.trim().toLowerCase();
+
+      const matchesSearch =
+        place.name.toLowerCase().includes(searchText) ||
+        place.location.toLowerCase().includes(searchText);
 
       return matchesCategory && matchesSearch;
     });
   }, [category, query]);
 
-  const visiblePlaces =
-    tab === "รายการโปรด"
-      ? places.filter((place) => favorites.includes(place.id))
-      : filtered;
+  const favoritePlaces = places.filter((place) =>
+    favorites.includes(place.id)
+  );
 
-  const toggleFavorite = (id: number) => {
+  function toggleFavorite(id: number) {
     setFavorites((previous) =>
       previous.includes(id)
         ? previous.filter((item) => item !== id)
         : [...previous, id]
     );
-  };
+  }
 
-  const selectCategory = (value: string) => {
-    setCategory(value);
+  function openCategory(filter: string) {
+    setCategory(filter);
+    setQuery("");
     setTab("สำรวจ");
-  };
+  }
 
   return (
     <main className="app-shell">
@@ -183,33 +255,38 @@ export default function HomePage() {
 
       {/* HEADER */}
       <header className="topbar">
-        <button className="icon-button" aria-label="เมนู">
-          <Menu size={21} />
+        <button
+          type="button"
+          className="icon-button"
+          aria-label="เมนู"
+          onClick={() => setTab("หน้าหลัก")}
+        >
+          ☰
         </button>
 
         <div className="brand">
-          <span className="brand-mark">
-            <Sparkles size={15} />
-          </span>
+          <span className="brand-mark">✦</span>
           <span>สุโขทัย</span>
         </div>
 
         <button
+          type="button"
           className="icon-button notification"
           aria-label="การแจ้งเตือน"
+          onClick={() => alert("ไม่มีการแจ้งเตือนใหม่")}
         >
-          <Bell size={20} />
+          ♧
           <i />
         </button>
       </header>
 
-      {/* HOME */}
+      {/* HOME PAGE */}
       {tab === "หน้าหลัก" && (
         <>
           <section className="hero">
             <img
-              src="https://images.unsplash.com/photo-1606293926075-69a00dbpay1?auto=format&fit=crop&w=1400&q=90"
-              alt="สถานที่ท่องเที่ยว"
+              src="https://images.unsplash.com/photo-1548013146-72479768bada?auto=format&fit=crop&w=1400&q=85"
+              alt="บรรยากาศสถานที่ท่องเที่ยว"
             />
 
             <div className="hero-shade" />
@@ -219,14 +296,15 @@ export default function HomePage() {
               <p>ยินดีต้อนรับสู่</p>
               <h1>จังหวัดสุโขทัย</h1>
               <span className="hero-sub">
-                เมืองมรดกโลก แห่งอารยธรรมไทย
+                เมืองแห่งประวัติศาสตร์และอารยธรรมไทย
               </span>
 
               <button
+                type="button"
                 className="hero-cta"
                 onClick={() => setTab("สำรวจ")}
               >
-                สำรวจเลย <ArrowRight size={16} />
+                สำรวจสถานที่ <span>→</span>
               </button>
             </div>
 
@@ -238,16 +316,15 @@ export default function HomePage() {
           </section>
 
           <section className="category-grid">
-            {categories.map(({ label, icon: Icon, filter }) => (
+            {categories.map((item) => (
               <button
+                type="button"
                 className="category-tile"
-                key={label}
-                onClick={() => selectCategory(filter)}
+                key={item.label}
+                onClick={() => openCategory(item.filter)}
               >
-                <span>
-                  <Icon size={22} />
-                </span>
-                <b>{label}</b>
+                <span>{item.icon}</span>
+                <b>{item.label}</b>
               </button>
             ))}
           </section>
@@ -275,14 +352,14 @@ export default function HomePage() {
             <div>
               <span className="eyebrow">TRAVEL TIP</span>
               <h3>เที่ยวสุโขทัยให้คุ้ม</h3>
-              <p>วางแผนเส้นทางและค้นหาสถานที่ที่ใช่สำหรับคุณ</p>
+              <p>วางแผนการเดินทางและค้นหาสถานที่ที่คุณชื่นชอบ</p>
             </div>
-            <Compass size={36} />
+            <span style={{ fontSize: 36 }}>🧭</span>
           </section>
         </>
       )}
 
-      {/* EXPLORE */}
+      {/* EXPLORE PAGE */}
       {tab === "สำรวจ" && (
         <>
           <div className="page-heading">
@@ -292,61 +369,62 @@ export default function HomePage() {
           </div>
 
           <div className="search-row">
-            <Search size={19} />
-
+            <span>⌕</span>
             <input
+              type="search"
               value={query}
               onChange={(event) => setQuery(event.target.value)}
               placeholder="ค้นหาสถานที่ท่องเที่ยว..."
             />
 
             <button
-              onClick={() => setShowFilters(!showFilters)}
-              aria-label="ตัวกรอง"
+              type="button"
+              aria-label="ล้างคำค้นหา"
+              onClick={() => setQuery("")}
             >
-              <SlidersHorizontal size={19} />
+              ✕
             </button>
           </div>
 
-          {showFilters && (
-            <div className="filter-note">
-              เลือกหมวดหมู่ด้านล่างเพื่อกรองสถานที่
-            </div>
-          )}
-
           <div className="chips">
-            {["ทั้งหมด", "วัดและโบราณสถาน", "ธรรมชาติ", "กิจกรรม", "ที่พัก", "ร้านอาหาร"].map(
-              (item) => (
-                <button
-                  key={item}
-                  className={
-                    category === item ? "chip selected" : "chip"
-                  }
-                  onClick={() => setCategory(item)}
-                >
-                  {item}
-                </button>
-              )
-            )}
+            {[
+              "ทั้งหมด",
+              "วัดและโบราณสถาน",
+              "ธรรมชาติ",
+              "กิจกรรม",
+              "ที่พัก",
+              "ร้านอาหาร",
+            ].map((item) => (
+              <button
+                type="button"
+                key={item}
+                className={
+                  category === item ? "chip selected" : "chip"
+                }
+                onClick={() => setCategory(item)}
+              >
+                {item}
+              </button>
+            ))}
           </div>
 
           <SectionHeading
             title="สถานที่ท่องเที่ยว"
-            action={`${filtered.length} แห่ง`}
+            action={`${filteredPlaces.length} แห่ง`}
           />
 
           <div className="place-list">
-            {filtered.map((place) => (
-              <PlaceCard
-                key={place.id}
-                place={place}
-                favorite={favorites.includes(place.id)}
-                onFavorite={() => toggleFavorite(place.id)}
-                onOpen={() => setSelected(place)}
-              />
-            ))}
-
-            {filtered.length === 0 && (
+            {filteredPlaces.length > 0 ? (
+              filteredPlaces.map((place) => (
+                <PlaceCard
+                  key={place.id}
+                  place={place}
+                  favorite={favorites.includes(place.id)}
+                  onFavorite={() => toggleFavorite(place.id)}
+                  onOpen={() => setSelected(place)}
+                />
+              ))
+            ) : (
               <EmptyState
                 title="ไม่พบสถานที่"
                 description="ลองเปลี่ยนคำค้นหาหรือหมวดหมู่"
@@ -360,22 +438,27 @@ export default function HomePage() {
         </>
       )}
 
-      {/* FAVORITES */}
+      {/* FAVORITES PAGE */}
       {tab === "รายการโปรด" && (
         <>
           <div className="page-heading">
             <span className="eyebrow">YOUR COLLECTION</span>
-            <h1>รายการโปรด</h1>
+            <h1>รายการโปรด ♡</h1>
             <p>สถานที่ที่คุณบันทึกไว้สำหรับการเดินทาง</p>
           </div>
 
+          <SectionHeading
+            title="สถานที่ที่บันทึกไว้"
+            action={`${favoritePlaces.length} แห่ง`}
+          />
+
           <div className="place-list">
-            {visiblePlaces.length > 0 ? (
-              visiblePlaces.map((place) => (
+            {favoritePlaces.length > 0 ? (
+              favoritePlaces.map((place) => (
                 <PlaceCard
                   key={place.id}
                   place={place}
-                  favorite={favorites.includes(place.id)}
+                  favorite
                   onFavorite={() => toggleFavorite(place.id)}
                   onOpen={() => setSelected(place)}
                 />
@@ -391,14 +474,14 @@ export default function HomePage() {
         </>
       )}
 
-      {/* PROFILE */}
+      {/* ACCOUNT PAGE */}
       {tab === "บัญชี" && (
         <section className="profile-view">
           <div className="profile-avatar">
-            <UserRound size={38} />
+            <span style={{ fontSize: 38 }}>♙</span>
           </div>
 
-          <p className="eyebrow">ยินดีต้อนรับ</p>
+          <p className="eyebrow">WELCOME TRAVELER</p>
           <h1>นักเดินทาง</h1>
 
           <p className="muted">
@@ -411,12 +494,13 @@ export default function HomePage() {
               <span>สถานที่โปรด</span>
             </div>
             <div>
-              <b>4</b>
+              <b>{categories.length}</b>
               <span>หมวดหมู่</span>
             </div>
           </div>
 
           <button
+            type="button"
             className="outline-button"
             onClick={() => setTab("หน้าหลัก")}
           >
@@ -427,28 +511,24 @@ export default function HomePage() {
 
       {/* BOTTOM NAVIGATION */}
       <nav className="bottom-nav">
-        {navItems.map(({ label, icon: Icon }) => (
+        {navItems.map((item) => (
           <button
-            key={label}
+            type="button"
+            key={item.label}
             className={
-              tab === label ? "nav-item active" : "nav-item"
+              tab === item.label ? "nav-item active" : "nav-item"
             }
-            onClick={() => setTab(label)}
+            onClick={() => setTab(item.label)}
           >
-            <Icon
-              size={21}
-              fill={
-                tab === label && label === "รายการโปรด"
-                  ? "currentColor"
-                  : "none"
-              }
-            />
-            <span>{label}</span>
+            <span style={{ fontSize: 23, lineHeight: 1 }}>
+              {item.icon}
+            </span>
+            <span>{item.label}</span>
           </button>
         ))}
       </nav>
 
-      {/* PLACE DETAIL MODAL */}
+      {/* DETAIL MODAL */}
       {selected && (
         <div
           className="modal-backdrop"
@@ -459,11 +539,12 @@ export default function HomePage() {
             onClick={(event) => event.stopPropagation()}
           >
             <button
+              type="button"
               className="modal-close"
               onClick={() => setSelected(null)}
-              aria-label="ปิดรายละเอียด"
+              aria-label="ปิด"
             >
-              <X size={20} />
+              ✕
             </button>
 
             <img
@@ -482,167 +563,43 @@ export default function HomePage() {
                 </div>
 
                 <button
+                  type="button"
                   className="heart-button"
                   onClick={() => toggleFavorite(selected.id)}
                 >
-                  <Heart
-                    size={21}
-                    fill={
-                      favorites.includes(selected.id)
-                        ? "currentColor"
-                        : "none"
-                    }
-                  />
+                  {favorites.includes(selected.id) ? "♥" : "♡"}
                 </button>
               </div>
 
               <div className="meta-line">
-                <span>
-                  <Star size={15} fill="currentColor" />
-                  {selected.rating}
-                </span>
-
-                <span>
-                  <MapPin size={15} />
-                  {selected.location}
-                </span>
+                <span>★ {selected.rating}</span>
+                <span>📍 {selected.location}</span>
               </div>
 
               <p>{selected.description}</p>
 
               <div className="info-row">
-                <Clock3 size={17} />
-                <span>{selected.hours}</span>
+                <span>◷</span>
+                {selected.hours}
               </div>
 
               <div className="info-row">
-                <Car size={17} />
-                <span>
-                  แนะนำให้ตรวจสอบเส้นทางก่อนออกเดินทาง
-                </span>
+                <span>🚗</span>
+                ตรวจสอบเส้นทางก่อนออกเดินทาง
               </div>
 
               <button
+                type="button"
                 className="primary-button full"
                 onClick={() => setSelected(null)}
               >
-                <Navigation size={17} />
-                ดูรายละเอียดการเดินทาง
+                <span>✓</span>
+                ปิดรายละเอียด
               </button>
             </div>
           </article>
         </div>
       )}
     </main>
-  );
-}
-
-/* SECTION HEADING */
-
-function SectionHeading({
-  title,
-  action,
-  onClick,
-}: {
-  title: string;
-  action?: string;
-  onClick?: () => void;
-}) {
-  return (
-    <div className="section-heading">
-      <h2>{title}</h2>
-
-      {action && (
-        <button onClick={onClick}>
-          {action}
-          <ChevronRight size={15} />
-        </button>
-      )}
-    </div>
-  );
-}
-
-/* PLACE CARD */
-
-function PlaceCard({
-  place,
-  favorite,
-  onFavorite,
-  onOpen,
-  compact = false,
-}: {
-  place: Place;
-  favorite: boolean;
-  onFavorite: () => void;
-  onOpen: () => void;
-  compact?: boolean;
-}) {
-  return (
-    <article
-      className={compact ? "place-card compact" : "place-card"}
-    >
-      <button className="place-open" onClick={onOpen}>
-        <img src={place.image} alt={place.name} />
-
-        <div className="place-info">
-          <h3>{place.name}</h3>
-
-          <div className="place-meta">
-            <span>
-              <Star size={13} fill="currentColor" />
-              {place.rating}
-            </span>
-
-            <span>
-              <MapPin size={13} />
-              {place.location}
-            </span>
-          </div>
-        </div>
-      </button>
-
-      <button
-        className={
-          favorite ? "card-heart saved" : "card-heart"
-        }
-        onClick={onFavorite}
-        aria-label={
-          favorite ? "นำออกจากรายการโปรด" : "เพิ่มรายการโปรด"
-        }
-      >
-        <Heart
-          size={18}
-          fill={favorite ? "currentColor" : "none"}
-        />
-      </button>
-    </article>
-  );
-}
-
-/* EMPTY STATE */
-
-function EmptyState({
-  title,
-  description,
-  onClick,
-}: {
-  title: string;
-  description: string;
-  onClick: () => void;
-}) {
-  return (
-    <div className="empty-state">
-      <div className="empty-icon">
-        <Heart size={30} />
-      </div>
-
-      <h3>{title}</h3>
-      <p>{description}</p>
-
-      <button className="primary-button" onClick={onClick}>
-        ไปสำรวจสถานที่
-        <ArrowRight size={16} />
-      </button>
-    </div>
   );
 }
