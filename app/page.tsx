@@ -1,4 +1,3 @@
-
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
@@ -43,7 +42,7 @@ const places: Place[] = [
     location: "อำเภอเมืองสุโขทัย",
     rating: "4.9",
     image:
-      "https://images.unsplash.com/photo-1606293926075-69a00dbf9e9d?w=900",
+      "https://commons.wikimedia.org/wiki/Special:FilePath/Central_temple_of_Wat_Mahathat.jpg?width=900",
     description:
       "โบราณสถานสำคัญใจกลางเมืองเก่าสุโขทัย โดดเด่นด้วยเจดีย์และสถาปัตยกรรมโบราณ",
   },
@@ -187,7 +186,9 @@ export default function Home() {
         <div className="place-info" onClick={() => setSelected(place)}>
           <h3>{place.name}</h3>
           <p>📍 {place.location}</p>
-          <div className="rating">★ {place.rating} <span>แนะนำ</span></div>
+          <div className="rating">
+            ★ {place.rating} <span>แนะนำ</span>
+          </div>
         </div>
       </article>
     );
@@ -206,7 +207,11 @@ export default function Home() {
               <small>TRAVEL GUIDE</small>
             </div>
           </div>
-          <button className="bell" onClick={() => alert("ไม่มีการแจ้งเตือน")}>
+
+          <button
+            className="bell"
+            onClick={() => alert("ไม่มีการแจ้งเตือน")}
+          >
             ♧
           </button>
         </header>
@@ -219,15 +224,18 @@ export default function Home() {
                 src="https://images.unsplash.com/photo-1548013146-72479768bada?w=1200"
                 alt="สถานที่ท่องเที่ยว"
               />
+
               <div className="hero-shade" />
 
               <div className="hero-text">
                 <span>DISCOVER SUKHOTHAI</span>
                 <p>ออกเดินทางไปค้นพบ</p>
                 <h1>สุโขทัย</h1>
+
                 <p className="hero-sub">
                   เมืองแห่งประวัติศาสตร์และอารยธรรมไทย
                 </p>
+
                 <button onClick={() => goExplore()}>
                   เริ่มต้นสำรวจ →
                 </button>
@@ -261,7 +269,10 @@ export default function Home() {
                   <small>POPULAR PLACES</small>
                   <h2>สถานที่ยอดนิยม</h2>
                 </div>
-                <button onClick={() => goExplore()}>ดูทั้งหมด →</button>
+
+                <button onClick={() => goExplore()}>
+                  ดูทั้งหมด →
+                </button>
               </div>
 
               <div className="horizontal">
@@ -277,10 +288,12 @@ export default function Home() {
                 <h2>ทุกการเดินทาง</h2>
                 <h2>มีเรื่องราวเสมอ</h2>
                 <p>ค้นพบเสน่ห์ของสุโขทัยไปด้วยกัน</p>
+
                 <button onClick={() => goExplore()}>
                   ค้นหาสถานที่ →
                 </button>
               </div>
+
               <span>🧭</span>
             </section>
           </>
@@ -297,11 +310,13 @@ export default function Home() {
 
             <div className="search">
               <span>⌕</span>
+
               <input
                 placeholder="ค้นหาสถานที่..."
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
               />
+
               <button onClick={() => setSearch("")}>×</button>
             </div>
 
@@ -332,10 +347,13 @@ export default function Home() {
                   <span>🔎</span>
                   <h3>ไม่พบสถานที่</h3>
                   <p>ลองเปลี่ยนคำค้นหาอีกครั้ง</p>
-                  <button onClick={() => {
-                    setSearch("");
-                    setCategory("ทั้งหมด");
-                  }}>
+
+                  <button
+                    onClick={() => {
+                      setSearch("");
+                      setCategory("ทั้งหมด");
+                    }}
+                  >
                     ล้างการค้นหา
                   </button>
                 </div>
@@ -368,6 +386,7 @@ export default function Home() {
                   <span>♡</span>
                   <h3>ยังไม่มีรายการโปรด</h3>
                   <p>กดปุ่มหัวใจเพื่อบันทึกสถานที่ที่ชอบ</p>
+
                   <button onClick={() => goExplore()}>
                     สำรวจสถานที่
                   </button>
@@ -381,6 +400,7 @@ export default function Home() {
         {page === "บัญชี" && (
           <section className="profile">
             <div className="avatar">👤</div>
+
             <small>WELCOME TRAVELER</small>
             <h1>นักเดินทาง</h1>
             <p>ยินดีต้อนรับสู่ Sukhothai Travel Guide</p>
@@ -390,6 +410,7 @@ export default function Home() {
                 <strong>{favorites.length}</strong>
                 <span>รายการโปรด</span>
               </div>
+
               <div>
                 <strong>{places.length}</strong>
                 <span>สถานที่แนะนำ</span>
@@ -400,9 +421,11 @@ export default function Home() {
               <button onClick={() => setPage("รายการโปรด")}>
                 ♡ รายการโปรด <span>›</span>
               </button>
+
               <button onClick={() => setPage("สำรวจ")}>
                 ⌕ สำรวจสถานที่ <span>›</span>
               </button>
+
               <button onClick={() => setPage("หน้าหลัก")}>
                 ⌂ กลับหน้าหลัก <span>›</span>
               </button>
@@ -428,20 +451,32 @@ export default function Home() {
       {/* DETAIL */}
       {selected && (
         <div className="modal" onClick={() => setSelected(null)}>
-          <section className="detail" onClick={(e) => e.stopPropagation()}>
+          <section
+            className="detail"
+            onClick={(e) => e.stopPropagation()}
+          >
             <div className="detail-image">
               <img src={selected.image} alt={selected.name} />
-              <button onClick={() => setSelected(null)}>✕</button>
+
+              <button onClick={() => setSelected(null)}>
+                ✕
+              </button>
             </div>
 
             <div className="detail-content">
               <small>{selected.category}</small>
               <h2>{selected.name}</h2>
               <p>📍 {selected.location}</p>
-              <div className="rating">★ {selected.rating}</div>
+
+              <div className="rating">
+                ★ {selected.rating}
+              </div>
 
               <h3>เกี่ยวกับสถานที่</h3>
-              <p className="description">{selected.description}</p>
+
+              <p className="description">
+                {selected.description}
+              </p>
 
               <button
                 className="save-button"
