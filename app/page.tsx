@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
@@ -27,7 +28,7 @@ const places: Place[] = [
   {
     id: 2,
     name: "วัดศรีชุม",
-    category: "วัดและโบราณสถาน",
+    category: "ประวัติศาสตร์",
     location: "อำเภอเมืองสุโขทัย",
     rating: "4.8",
     image:
@@ -118,7 +119,9 @@ export default function Home() {
   useEffect(() => {
     try {
       const saved = localStorage.getItem("sukhothai-favorites");
-      if (saved) setFavorites(JSON.parse(saved));
+      if (saved) {
+        setFavorites(JSON.parse(saved));
+      }
     } catch {
       setFavorites([]);
     }
@@ -130,10 +133,14 @@ export default function Home() {
         ? previous.filter((item) => item !== id)
         : [...previous, id];
 
-      localStorage.setItem(
-        "sukhothai-favorites",
-        JSON.stringify(next)
-      );
+      try {
+        localStorage.setItem(
+          "sukhothai-favorites",
+          JSON.stringify(next)
+        );
+      } catch {
+        console.error("ไม่สามารถบันทึกรายการโปรดได้");
+      }
 
       return next;
     });
@@ -143,9 +150,7 @@ export default function Home() {
     return places.filter((place) => {
       const matchCategory =
         category === "ทั้งหมด" ||
-        place.category === category ||
-        (category === "ประวัติศาสตร์" &&
-          place.category === "วัดและโบราณสถาน");
+        place.category === category;
 
       const matchSearch =
         place.name.toLowerCase().includes(search.toLowerCase()) ||
@@ -170,9 +175,14 @@ export default function Home() {
 
     return (
       <article className="place-card">
-        <div className="place-image" onClick={() => setSelected(place)}>
+        <div
+          className="place-image"
+          onClick={() => setSelected(place)}
+        >
           <img src={place.image} alt={place.name} />
-          <span className="category-label">{place.category}</span>
+          <span className="category-label">
+            {place.category}
+          </span>
         </div>
 
         <button
@@ -183,11 +193,15 @@ export default function Home() {
           {saved ? "♥" : "♡"}
         </button>
 
-        <div className="place-info" onClick={() => setSelected(place)}>
+        <div
+          className="place-info"
+          onClick={() => setSelected(place)}
+        >
           <h3>{place.name}</h3>
           <p>📍 {place.location}</p>
           <div className="rating">
-            ★ {place.rating} <span>แนะนำ</span>
+            ★ {place.rating}
+            <span>แนะนำ</span>
           </div>
         </div>
       </article>
@@ -231,7 +245,6 @@ export default function Home() {
                 <span>DISCOVER SUKHOTHAI</span>
                 <p>ออกเดินทางไปค้นพบ</p>
                 <h1>สุโขทัย</h1>
-
                 <p className="hero-sub">
                   เมืองแห่งประวัติศาสตร์และอารยธรรมไทย
                 </p>
@@ -324,7 +337,9 @@ export default function Home() {
               {categories.map((item) => (
                 <button
                   key={item.name}
-                  className={category === item.name ? "active" : ""}
+                  className={
+                    category === item.name ? "active" : ""
+                  }
                   onClick={() => setCategory(item.name)}
                 >
                   {item.name}
@@ -403,7 +418,9 @@ export default function Home() {
 
             <small>WELCOME TRAVELER</small>
             <h1>นักเดินทาง</h1>
-            <p>ยินดีต้อนรับสู่ Sukhothai Travel Guide</p>
+            <p>
+              ยินดีต้อนรับสู่ Sukhothai Travel Guide
+            </p>
 
             <div className="stats">
               <div>
@@ -439,7 +456,9 @@ export default function Home() {
         {navigation.map((item) => (
           <button
             key={item.name}
-            className={page === item.name ? "selected" : ""}
+            className={
+              page === item.name ? "selected" : ""
+            }
             onClick={() => setPage(item.name)}
           >
             <span>{item.icon}</span>
@@ -448,15 +467,21 @@ export default function Home() {
         ))}
       </nav>
 
-      {/* DETAIL */}
+      {/* DETAIL MODAL */}
       {selected && (
-        <div className="modal" onClick={() => setSelected(null)}>
+        <div
+          className="modal"
+          onClick={() => setSelected(null)}
+        >
           <section
             className="detail"
             onClick={(e) => e.stopPropagation()}
           >
             <div className="detail-image">
-              <img src={selected.image} alt={selected.name} />
+              <img
+                src={selected.image}
+                alt={selected.name}
+              />
 
               <button onClick={() => setSelected(null)}>
                 ✕
@@ -473,7 +498,6 @@ export default function Home() {
               </div>
 
               <h3>เกี่ยวกับสถานที่</h3>
-
               <p className="description">
                 {selected.description}
               </p>
@@ -491,6 +515,7 @@ export default function Home() {
         </div>
       )}
 
+      {/* MODERN SAGE GREEN THEME */}
       <style jsx global>{`
         * {
           box-sizing: border-box;
@@ -498,8 +523,8 @@ export default function Home() {
 
         body {
           margin: 0;
-          background: #f5f2ec;
-          color: #39342d;
+          background: #f4f5ef;
+          color: #30483f;
           font-family: Arial, "Noto Sans Thai", sans-serif;
         }
 
@@ -507,6 +532,11 @@ export default function Home() {
           font-family: inherit;
           cursor: pointer;
           -webkit-tap-highlight-color: transparent;
+          transition: all 0.2s ease;
+        }
+
+        button:hover {
+          filter: brightness(0.96);
         }
 
         .app {
@@ -514,15 +544,18 @@ export default function Home() {
           max-width: 480px;
           min-height: 100vh;
           margin: auto;
-          background: #fffdf9;
+          background: #fbfcf8;
           position: relative;
           overflow: hidden;
+          color: #30483f;
         }
 
         .content {
-          padding: 0 18px 100px;
+          padding: 0 18px 110px;
           min-height: 100vh;
         }
+
+        /* HEADER */
 
         .header {
           height: 76px;
@@ -540,34 +573,37 @@ export default function Home() {
         .logo-icon {
           width: 43px;
           height: 43px;
-          background: #fff0d5;
+          background: #e5eee8;
           border-radius: 15px;
           display: grid;
           place-items: center;
           font-size: 24px;
-          color: #df943e;
+          color: #315c50;
         }
 
         .logo h2 {
           font-size: 19px;
           margin: 0;
+          color: #315c50;
         }
 
         .logo small {
           font-size: 9px;
           letter-spacing: 2px;
-          color: #ae9d88;
+          color: #8ba398;
         }
 
         .bell {
           border: 0;
-          background: #fff0d5;
+          background: #eaf1eb;
           width: 42px;
           height: 42px;
           border-radius: 14px;
-          color: #d78d3b;
+          color: #315c50;
           font-size: 22px;
         }
+
+        /* HERO */
 
         .hero {
           height: 355px;
@@ -590,8 +626,8 @@ export default function Home() {
           inset: 0;
           background: linear-gradient(
             0deg,
-            #241d19db,
-            #241d1950 50%,
+            #172f29e8,
+            #172f2960 55%,
             transparent
           );
         }
@@ -604,7 +640,7 @@ export default function Home() {
         }
 
         .hero-text > span {
-          color: #ffdf9f;
+          color: #d9e8d9;
           font-size: 10px;
           letter-spacing: 2px;
         }
@@ -627,14 +663,21 @@ export default function Home() {
 
         .hero-text button,
         .banner button {
-          background: #f4b65d;
-          color: #573b1c;
+          background: #315c50;
+          color: #ffffff;
           border: 0;
           border-radius: 30px;
           padding: 12px 20px;
           font-size: 12px;
           font-weight: bold;
         }
+
+        .hero-text button:hover,
+        .banner button:hover {
+          background: #24483e;
+        }
+
+        /* SECTIONS */
 
         .section {
           margin-top: 29px;
@@ -649,7 +692,7 @@ export default function Home() {
 
         .heading small,
         .page-title small {
-          color: #d69344;
+          color: #67917c;
           font-size: 9px;
           letter-spacing: 1.5px;
           font-weight: bold;
@@ -658,14 +701,17 @@ export default function Home() {
         .heading h2 {
           font-size: 18px;
           margin: 5px 0;
+          color: #30483f;
         }
 
         .heading > button {
           border: 0;
           background: none;
-          color: #d18b3d;
+          color: #51816a;
           font-size: 11px;
         }
+
+        /* CATEGORIES */
 
         .categories {
           display: flex;
@@ -683,14 +729,14 @@ export default function Home() {
           gap: 8px;
           border: 0;
           background: none;
-          color: #51483d;
+          color: #45675a;
         }
 
         .categories button span {
           width: 60px;
           height: 60px;
           border-radius: 20px;
-          background: #fff1da;
+          background: #eaf1eb;
           display: grid;
           place-items: center;
           font-size: 24px;
@@ -699,6 +745,8 @@ export default function Home() {
         .categories button small {
           font-size: 10px;
         }
+
+        /* PLACE CARDS */
 
         .horizontal {
           display: flex;
@@ -711,11 +759,18 @@ export default function Home() {
           width: 100%;
           flex-shrink: 0;
           position: relative;
-          background: white;
-          border: 1px solid #f1ebdf;
+          background: #ffffff;
+          border: 1px solid #e8eee7;
+          box-shadow: 0 5px 18px #315c500a;
           border-radius: 19px;
           overflow: hidden;
           margin-bottom: 14px;
+          transition: transform 0.25s, box-shadow 0.25s;
+        }
+
+        .place-card:hover {
+          transform: translateY(-3px);
+          box-shadow: 0 10px 24px #315c5018;
         }
 
         .horizontal .place-card {
@@ -726,7 +781,7 @@ export default function Home() {
           height: 165px;
           position: relative;
           cursor: pointer;
-          background: #eee4d6;
+          background: #e8eee7;
         }
 
         .place-image img {
@@ -741,8 +796,8 @@ export default function Home() {
           left: 12px;
           padding: 6px 10px;
           border-radius: 20px;
-          background: #fffaf0e8;
-          color: #a96a2e;
+          background: #f3f7f1ed;
+          color: #315c50;
           font-size: 9px;
         }
 
@@ -756,12 +811,12 @@ export default function Home() {
           background: white;
           border-radius: 50%;
           font-size: 20px;
-          color: #c4a18c;
+          color: #a4b3a8;
           z-index: 2;
         }
 
         .heart.liked {
-          color: #e65f50;
+          color: #df746d;
         }
 
         .place-info {
@@ -772,27 +827,31 @@ export default function Home() {
         .place-info h3 {
           font-size: 13px;
           margin: 0 0 8px;
+          color: #30483f;
         }
 
         .place-info p {
           font-size: 10px;
-          color: #9b9185;
+          color: #879a8d;
           margin: 0 0 8px;
         }
 
         .rating {
           font-size: 11px;
           font-weight: bold;
-          color: #e3a044;
+          color: #c39a50;
         }
 
         .rating span {
           margin-left: 7px;
-          background: #fff2df;
+          background: #f2f5ed;
+          color: #678474;
           border-radius: 12px;
           padding: 4px 8px;
           font-size: 9px;
         }
+
+        /* BANNER */
 
         .banner {
           margin-top: 20px;
@@ -802,28 +861,35 @@ export default function Home() {
           justify-content: space-between;
           align-items: center;
           border-radius: 22px;
-          background: linear-gradient(120deg, #fff0d2, #ffdfb3);
+          background: linear-gradient(
+            120deg,
+            #e7efe6,
+            #f2f2e7
+          );
         }
 
         .banner small {
-          color: #ba7a36;
+          color: #678474;
           letter-spacing: 1px;
           font-size: 9px;
         }
 
         .banner h2 {
+          color: #315c50;
           font-size: 17px;
           margin: 6px 0;
         }
 
         .banner p {
           font-size: 10px;
-          color: #927a5e;
+          color: #7c9385;
         }
 
         .banner > span {
           font-size: 42px;
         }
+
+        /* PAGE TITLE */
 
         .page-title {
           padding: 25px 0 18px;
@@ -832,12 +898,15 @@ export default function Home() {
         .page-title h1 {
           font-size: 24px;
           margin: 9px 0;
+          color: #30483f;
         }
 
         .page-title p {
           font-size: 12px;
-          color: #a59a8c;
+          color: #879a8d;
         }
+
+        /* SEARCH */
 
         .search {
           height: 51px;
@@ -845,14 +914,14 @@ export default function Home() {
           align-items: center;
           gap: 10px;
           padding: 0 14px;
-          border: 1px solid #f0e8db;
+          border: 1px solid #e5ece5;
           border-radius: 15px;
-          background: white;
+          background: #ffffff;
         }
 
         .search span {
           font-size: 24px;
-          color: #c58b49;
+          color: #5d9079;
         }
 
         .search input {
@@ -862,13 +931,20 @@ export default function Home() {
           outline: none;
           font-size: 12px;
           background: transparent;
+          color: #30483f;
+        }
+
+        .search input::placeholder {
+          color: #a5b4a8;
         }
 
         .search button {
           border: 0;
           background: none;
-          color: #a69b8e;
+          color: #879a8d;
         }
+
+        /* FILTERS */
 
         .filters {
           display: flex;
@@ -880,19 +956,21 @@ export default function Home() {
 
         .filters button {
           flex-shrink: 0;
-          border: 1px solid #eee5d8;
-          background: white;
-          color: #8d8172;
+          border: 1px solid #e4ebe3;
+          background: #ffffff;
+          color: #6e8276;
           padding: 9px 14px;
           border-radius: 25px;
           font-size: 10px;
         }
 
         .filters button.active {
-          background: #e99d4d;
+          background: #315c50;
           color: white;
-          border-color: #e99d4d;
+          border-color: #315c50;
         }
+
+        /* LIST */
 
         .list-heading {
           display: flex;
@@ -903,16 +981,19 @@ export default function Home() {
 
         .list-heading h2 {
           font-size: 16px;
+          color: #30483f;
         }
 
         .list-heading span {
           font-size: 10px;
-          color: #d68e41;
+          color: #67917c;
         }
 
         .place-list .place-image {
           height: 175px;
         }
+
+        /* EMPTY */
 
         .empty {
           text-align: center;
@@ -921,25 +1002,28 @@ export default function Home() {
 
         .empty > span {
           font-size: 45px;
-          color: #d99a4b;
+          color: #75a895;
         }
 
         .empty h3 {
           font-size: 17px;
+          color: #315c50;
         }
 
         .empty p {
           font-size: 12px;
-          color: #a69c90;
+          color: #879a8d;
         }
 
         .empty button {
           border: 0;
           border-radius: 25px;
           padding: 12px 20px;
-          background: #e99d4d;
+          background: #315c50;
           color: white;
         }
+
+        /* PROFILE */
 
         .profile {
           text-align: center;
@@ -950,7 +1034,7 @@ export default function Home() {
           width: 100px;
           height: 100px;
           margin: auto auto 20px;
-          background: #fff0d5;
+          background: #e8f0e8;
           border-radius: 35px;
           display: grid;
           place-items: center;
@@ -958,22 +1042,23 @@ export default function Home() {
         }
 
         .profile > small {
-          color: #d89950;
+          color: #67917c;
           letter-spacing: 2px;
         }
 
         .profile h1 {
           font-size: 25px;
+          color: #315c50;
         }
 
         .profile > p {
-          color: #a69a8b;
+          color: #879a8d;
           font-size: 12px;
         }
 
         .stats {
           display: flex;
-          background: #fff4e3;
+          background: #edf3ec;
           border-radius: 20px;
           padding: 20px;
           margin: 30px 0;
@@ -988,17 +1073,18 @@ export default function Home() {
 
         .stats strong {
           font-size: 25px;
-          color: #d98c39;
+          color: #315c50;
         }
 
         .stats span {
           font-size: 11px;
+          color: #718879;
         }
 
         .profile-menu {
           padding: 5px 15px;
           background: white;
-          border: 1px solid #f2eee7;
+          border: 1px solid #e8eee7;
           border-radius: 18px;
         }
 
@@ -1006,16 +1092,23 @@ export default function Home() {
           width: 100%;
           padding: 18px 5px;
           border: 0;
-          border-bottom: 1px solid #f4eee6;
+          border-bottom: 1px solid #edf0e9;
           background: white;
           text-align: left;
           font-size: 12px;
+          color: #405c4e;
+        }
+
+        .profile-menu button:last-child {
+          border-bottom: 0;
         }
 
         .profile-menu button span {
           float: right;
-          color: #c5b7a5;
+          color: #a5b4a8;
         }
+
+        /* BOTTOM NAV */
 
         .bottom-nav {
           position: fixed;
@@ -1027,9 +1120,9 @@ export default function Home() {
           max-width: 480px;
           height: calc(76px + env(safe-area-inset-bottom));
           padding: 8px 10px env(safe-area-inset-bottom);
-          background: #ffffffed;
+          background: #fbfcf8ed;
           backdrop-filter: blur(16px);
-          border-top: 1px solid #f2ebdf;
+          border-top: 1px solid #e8eee7;
           display: flex;
           align-items: center;
           justify-content: space-around;
@@ -1043,7 +1136,7 @@ export default function Home() {
           gap: 4px;
           border: 0;
           background: transparent;
-          color: #aaa194;
+          color: #9aaba0;
         }
 
         .bottom-nav button > span {
@@ -1056,21 +1149,23 @@ export default function Home() {
         }
 
         .bottom-nav button.selected {
-          color: #df913e;
+          color: #315c50;
           font-weight: bold;
         }
 
         .bottom-nav button.selected > span {
-          background: #fff0d8;
+          background: #e8f0e8;
           width: 48px;
           border-radius: 15px;
         }
+
+        /* DETAIL MODAL */
 
         .modal {
           position: fixed;
           z-index: 50;
           inset: 0;
-          background: #2e261eb8;
+          background: #172f29b8;
           display: flex;
           align-items: flex-end;
           justify-content: center;
@@ -1082,7 +1177,7 @@ export default function Home() {
           max-width: 460px;
           max-height: 90vh;
           overflow-y: auto;
-          background: #fffdf9;
+          background: #fbfcf8;
           border-radius: 25px;
         }
 
@@ -1106,6 +1201,7 @@ export default function Home() {
           width: 38px;
           height: 38px;
           background: white;
+          color: #315c50;
         }
 
         .detail-content {
@@ -1113,7 +1209,12 @@ export default function Home() {
         }
 
         .detail-content > small {
-          color: #d28b42;
+          color: #67917c;
+        }
+
+        .detail-content h2,
+        .detail-content h3 {
+          color: #315c50;
         }
 
         .detail-content h2 {
@@ -1122,7 +1223,7 @@ export default function Home() {
 
         .detail-content p {
           font-size: 12px;
-          color: #968a7a;
+          color: #879a8d;
         }
 
         .detail-content h3 {
@@ -1137,7 +1238,7 @@ export default function Home() {
 
         .save-button {
           width: 100%;
-          background: #e99d4d;
+          background: #315c50;
           color: white;
           border: 0;
           border-radius: 15px;
@@ -1146,6 +1247,12 @@ export default function Home() {
           font-weight: bold;
         }
 
+        .save-button:hover {
+          background: #24483e;
+        }
+
+        /* TABLET & DESKTOP */
+
         @media (min-width: 600px) {
           body {
             padding: 20px 0;
@@ -1153,7 +1260,7 @@ export default function Home() {
 
           .app {
             border-radius: 28px;
-            box-shadow: 0 0 40px #6c5a4015;
+            box-shadow: 0 0 40px #315c5015;
           }
 
           .bottom-nav {
@@ -1170,6 +1277,49 @@ export default function Home() {
 
           .hero {
             height: 320px;
+          }
+        }
+
+        @media (min-width: 768px) {
+          .app {
+            max-width: 760px;
+          }
+
+          .bottom-nav {
+            max-width: 760px;
+          }
+
+          .place-list {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 14px;
+          }
+
+          .place-list .place-card {
+            margin-bottom: 0;
+          }
+
+          .horizontal .place-card {
+            width: 260px;
+          }
+        }
+
+        @media (min-width: 1100px) {
+          .app {
+            max-width: 960px;
+          }
+
+          .bottom-nav {
+            max-width: 960px;
+          }
+
+          .content {
+            padding-left: 30px;
+            padding-right: 30px;
+          }
+
+          .place-list {
+            grid-template-columns: repeat(3, minmax(0, 1fr));
           }
         }
       `}</style>
